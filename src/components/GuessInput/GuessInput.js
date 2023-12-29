@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function GuessInput({ handleSubmitGuess }) {
+function GuessInput({ handleSubmitGuess, isGameOver }) {
     const [guess, setGuess] = useState('');
 
     const handleSubmit = (e) => {
@@ -20,6 +20,7 @@ function GuessInput({ handleSubmitGuess }) {
                 maxLength={5}
                 pattern="^[A-Z]{5}$"
                 autoCapitalize="characters"
+                disabled={isGameOver}
                 required
             />
         </form>

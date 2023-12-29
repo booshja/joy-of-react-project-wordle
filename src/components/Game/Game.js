@@ -19,8 +19,6 @@ function Game() {
     });
 
     const handleSubmitGuess = (guess) => {
-        if (gameFinished.isGameOver) return;
-
         const newGuessList = [...guessList];
         newGuessList[numGuesses].guess = guess;
         setGuessList(newGuessList);
@@ -36,7 +34,10 @@ function Game() {
     return (
         <>
             <GameBoard guessList={guessList} answer={answer} />
-            <GuessInput handleSubmitGuess={handleSubmitGuess} />
+            <GuessInput
+                handleSubmitGuess={handleSubmitGuess}
+                isGameOver={gameFinished.isGameOver}
+            />
             {gameFinished.isGameOver && (
                 <Banner
                     isWinner={gameFinished.isWinner}
