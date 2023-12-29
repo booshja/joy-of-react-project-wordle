@@ -1,13 +1,29 @@
 import React from 'react';
+import { checkGuess } from '../../game-helpers';
+import { range } from '../../utils';
 
-function Guess({ word }) {
+function Guess({ word, answer, isEmpty }) {
+    let wordList;
+
+    if (!isEmpty) wordList = checkGuess(word, answer);
+
     return (
         <p className="guess">
-            <span className="cell">{word[0]}</span>
-            <span className="cell">{word[1]}</span>
-            <span className="cell">{word[2]}</span>
-            <span className="cell">{word[3]}</span>
-            <span className="cell">{word[4]}</span>
+            {isEmpty ? (
+                <>
+                    {range(0, 5, 1).map((_) => (
+                        <span className="cell" key={Math.random()}></span>
+                    ))}
+                </>
+            ) : (
+                <>
+                    {wordList.map(({ letter, status }) => (
+                        <span className={`cell ${status}`} key={Math.random()}>
+                            {letter}
+                        </span>
+                    ))}
+                </>
+            )}
         </p>
     );
 }

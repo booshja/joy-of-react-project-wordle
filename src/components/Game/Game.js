@@ -30,7 +30,7 @@ function Game() {
 
     return (
         <>
-            <GameBoard guessList={guessList} />
+            <GameBoard guessList={guessList} answer={answer} />
             <GuessInput
                 handleSubmitGuess={handleSubmitGuess}
                 hasMoreGuesses={hasMoreGuesses}
