@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
 
-function GuessInput({ handleSubmitGuess, hasMoreGuesses }) {
+function GuessInput({ handleSubmitGuess }) {
     const [guess, setGuess] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (!hasMoreGuesses) {
-            alert("You've run out of guesses, sorry!");
-            setGuess('');
-            return;
-        }
-
-        console.log(guess);
         handleSubmitGuess(guess);
         setGuess('');
     };

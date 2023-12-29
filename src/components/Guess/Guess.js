@@ -1,6 +1,6 @@
-import React from 'react';
 import { checkGuess } from '../../game-helpers';
 import { range } from '../../utils';
+import React from 'react';
 
 function Guess({ word, answer, isEmpty }) {
     let wordList;

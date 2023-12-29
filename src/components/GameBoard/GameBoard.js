@@ -1,5 +1,5 @@
-import React from 'react';
 import Guess from '../Guess';
+import React from 'react';
 
 function GameBoard({ guessList, answer }) {
     return (
@@ -9,7 +9,7 @@ function GameBoard({ guessList, answer }) {
                     <Guess
                         word={guess}
                         answer={answer}
-                        isEmpty={guess === '     '}
+                        isEmpty={guess === ''}
                         key={id}
                     />
                 ))}
