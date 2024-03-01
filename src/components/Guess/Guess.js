@@ -1,12 +1,7 @@
-import { checkGuess } from '../../game-helpers';
 import { range } from '../../utils';
 import React from 'react';
 
-function Guess({ word, answer, isEmpty }) {
-    let wordList;
-
-    if (!isEmpty) wordList = checkGuess(word, answer);
-
+function Guess({ wordList, isEmpty }) {
     return (
         <p className="guess">
             {isEmpty ? (
